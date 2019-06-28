@@ -40,31 +40,31 @@ export class SprengnetterService extends APIClient {
     }
 
     /**
-     * Fetches all inquiries with pagination support
+     * Gets the HTML that is necessary to display the market report
      * @param {String} entityId - The entityId of the estate that should the htmlView should be created for.
      * @returns {Promise<AxiosResponse>} The response contains the html that represents the marketanalysis.
      */
     async fetchHtml(entityId: string): Promise<AxiosResponse> {
-        return await this.invokeApi('/htmlView/' + entityId, 'GET');
+        return await this.invokeApi(`/htmlView/${entityId}`, 'GET');
     }
 
     /**
-     * Fetches all inquiries with pagination support
+     * Gets a link to the pdfReport that is stored on S3
      * @param {String} entityId - The entityId of the estate that should the pdfView should be created for.
      * @returns {Promise<AxiosResponse>} The response contains a link to the pdf that is stored on S3.
      */
     async fetchPdfLink(entityId: String): Promise<AxiosResponse> {
-        return await this.invokeApi('/pdfView/' + entityId, 'GET');
+        return await this.invokeApi(`/pdfView/${entityId}`, 'GET');
     }
 
     /**
-     * Fetches all inquiries with pagination support
+     * Sends the customer feedback regarding the marketanalysis tool to pm
      * @param {Number} rating - The StarRating that was selected
      * @param {String} message - The message that contains the feedback
      * @returns {Promise<AxiosResponse>}
      */
     async sendFeedback(rating: number, message: string): Promise<AxiosResponse> {
-        return await this.invokeApi('/feedback', 'POST', {rating: rating, message: message});
+        return await this.invokeApi(`/feedback`, 'POST', {rating: rating, message: message});
     }
 
 }
