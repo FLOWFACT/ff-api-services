@@ -45,7 +45,7 @@ export class SprengnetterService extends APIClient {
      * @returns {Promise<AxiosResponse>} The response contains the html that represents the marketanalysis.
      */
     async fetchHtml(entityId: string): Promise<AxiosResponse> {
-        return await this.invokeApi('/htmlView/' + entityId);
+        return await this.invokeApi('/htmlView/' + entityId, 'GET');
     }
 
     /**
@@ -54,7 +54,17 @@ export class SprengnetterService extends APIClient {
      * @returns {Promise<AxiosResponse>} The response contains a link to the pdf that is stored on S3.
      */
     async fetchPdfLink(entityId: String): Promise<AxiosResponse> {
-        return await this.invokeApi('/pdfView/' + entityId);
+        return await this.invokeApi('/pdfView/' + entityId, 'GET');
+    }
+
+    /**
+     * Fetches all inquiries with pagination support
+     * @param {Number} rating - The StarRating that was selected
+     * @param {String} message - The message that contains the feedback
+     * @returns {Promise<AxiosResponse>}
+     */
+    async sendFeedback(rating: number, message: string): Promise<AxiosResponse> {
+        return await this.invokeApi('/feedback', 'POST', {rating: rating, message: message});
     }
 
 }
