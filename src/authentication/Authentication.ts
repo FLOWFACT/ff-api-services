@@ -41,8 +41,8 @@ class Authentication {
             storage: CustomStorage,
             Auth: {
                 region: region,
-                userPoolId: stageSettings[stage].userPoolId,
-                userPoolWebClientId: stageSettings[stage].clientId,
+                userPoolId: stageSettings[stage].userPoolId || stageSettings.development.userPoolId,
+                userPoolWebClientId: stageSettings[stage].clientId || stageSettings.development.clientId,
             },
         });
 
@@ -146,7 +146,7 @@ class Authentication {
             };
         } catch (error) {
             const code = error.code;
-            console.log(error);
+            console.warn(error);
             switch (code) {
 
                 case 'AliasExistsException':
