@@ -32,11 +32,11 @@ export class PropertyMarketingPhaseService extends APIClient {
      * @param page
      * @param size
      */
-    async fetchEntitiesInPhase(phaseName: string, page: number = 1, size: number = 50) {
+    async fetchEntitiesInPhase(phaseName: string, page: number = 1, size: number = 50, archived = true, inactive = true) {
         return await this.invokeApi<string[]>(`/phases/${phaseName}/entities`, 'GET', undefined, {
             queryParams: {
-                archived: 'true',
-                inactive: 'true',
+                archived,
+                inactive,
                 page,
                 size
             }
@@ -50,11 +50,11 @@ export class PropertyMarketingPhaseService extends APIClient {
      * @param page
      * @param size
      */
-    async fetchEntitiesInPhaseAndSchema(phaseName: string, schemaId: string, page: number = 1, size: number = 50) {
+    async fetchEntitiesInPhaseAndSchema(phaseName: string, schemaId: string, page: number = 1, size: number = 50, archived = true, inactive = true) {
         return await this.invokeApi<string[]>(`/phases/${phaseName}/entities/${schemaId}`, 'GET', undefined, {
             queryParams: {
-                archived: 'true',
-                inactive: 'true',
+                archived,
+                inactive,
                 page,
                 size
             }
@@ -100,11 +100,11 @@ export class PropertyMarketingPhaseService extends APIClient {
      * TODO: Please comment this method
      * @param maxCount
      */
-    async fetchPhaseStatistics(maxCount: number = 50): Promise<AxiosResponse> {
+    async fetchPhaseStatistics(maxCount: number = 50, archived = true, inactive = true): Promise<AxiosResponse> {
         return await this.invokeApi(`/phases/stats`, 'GET', undefined, {
             queryParams: {
-                archived: 'true',
-                inactive: 'true',
+                archived,
+                inactive,
                 size: maxCount
             }
         });
