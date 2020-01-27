@@ -1,5 +1,5 @@
 import { APIClient, APIMapping } from '../http';
-import { AclGroup, AclGroupType } from '@flowfact/types';
+import { AclGroup, AclGroupType, AcpTemplate } from '@flowfact/types';
 
 class AclGroupServiceRest extends APIClient {
 
@@ -42,6 +42,55 @@ class AclGroupServiceRest extends APIClient {
     async deleteGroup(group: AclGroup) {
         return this.invokeApi(`/groups/${group.id}`, 'DELETE', group);
     }
+
+    /**
+     * Fetch available templates
+     */
+    async fetchAcpTemplates() {
+        return this.invokeApi(`/templates`, 'GET');
+    }
+
+    /**
+     * Create template
+     * @param template
+     */
+    async createAcpTemplate(template: AcpTemplate) {
+        return this.invokeApi(`/templates`, 'POST', template);
+    }
+
+    /**
+     * Updates template
+     * @param template
+     */
+    async updateAcpTemplate(template: AcpTemplate) {
+        return this.invokeApi(`/templates`, 'PUT', template);
+    }
+
+    /**
+     * Fetches a template by Id
+     * @param templateId
+     */
+    async fetchAcpTemplateById(templateId: string) {
+        return this.invokeApi(`/templates/${templateId}`, 'GET');
+    }
+
+    /**
+     * Updates template by Id
+     * @param templateId
+     * @param template
+     */
+    async updateAcpTemplateById(templateId: string, template: AcpTemplate) {
+        return this.invokeApi(`/templates/${templateId}`, 'PUT', template);
+    }
+
+    /**
+     * Deletes template
+     * @param templateId
+     */
+    async deleteAcpTemplate(templateId: string) {
+        return this.invokeApi(`/templates`, 'DELETE');
+    }
+
 }
 
 export default new AclGroupServiceRest();
