@@ -88,7 +88,7 @@ class AclGroupServiceRest extends APIClient {
      * @param templateId
      */
     async deleteAcpTemplate(templateId: string) {
-        return this.invokeApi(`/templates`, 'DELETE');
+        return this.invokeApi(`/templates/${templateId}`, 'DELETE');
     }
 
 }
