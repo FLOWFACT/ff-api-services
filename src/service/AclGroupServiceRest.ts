@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import { APIClient, APIMapping } from '../http';
 import { AclGroup, AclGroupType, AcpTemplate } from '@flowfact/types';
 
@@ -46,7 +47,7 @@ class AclGroupServiceRest extends APIClient {
     /**
      * Fetch available templates
      */
-    async fetchAcpTemplates() {
+    async fetchAcpTemplates(): Promise<AxiosResponse<AcpTemplate[]>> {
         return this.invokeApi(`/templates`, 'GET');
     }
 
@@ -54,7 +55,7 @@ class AclGroupServiceRest extends APIClient {
      * Create template
      * @param template
      */
-    async createAcpTemplate(template: AcpTemplate) {
+    async createAcpTemplate(template: AcpTemplate): Promise<AxiosResponse<AcpTemplate>> {
         return this.invokeApi(`/templates`, 'POST', template);
     }
 
@@ -62,7 +63,7 @@ class AclGroupServiceRest extends APIClient {
      * Updates template
      * @param template
      */
-    async updateAcpTemplate(template: AcpTemplate) {
+    async updateAcpTemplate(template: AcpTemplate): Promise<AxiosResponse<AcpTemplate>> {
         return this.invokeApi(`/templates`, 'PUT', template);
     }
 
@@ -70,7 +71,7 @@ class AclGroupServiceRest extends APIClient {
      * Fetches a template by Id
      * @param templateId
      */
-    async fetchAcpTemplateById(templateId: string) {
+    async fetchAcpTemplateById(templateId: string): Promise<AxiosResponse<AcpTemplate>> {
         return this.invokeApi(`/templates/${templateId}`, 'GET');
     }
 
@@ -79,7 +80,7 @@ class AclGroupServiceRest extends APIClient {
      * @param templateId
      * @param template
      */
-    async updateAcpTemplateById(templateId: string, template: AcpTemplate) {
+    async updateAcpTemplateById(templateId: string, template: AcpTemplate): Promise<AxiosResponse<AcpTemplate>> {
         return this.invokeApi(`/templates/${templateId}`, 'PUT', template);
     }
 
@@ -87,7 +88,7 @@ class AclGroupServiceRest extends APIClient {
      * Deletes template
      * @param templateId
      */
-    async deleteAcpTemplate(templateId: string) {
+    async deleteAcpTemplate(templateId: string): Promise<AxiosResponse> {
         return this.invokeApi(`/templates/${templateId}`, 'DELETE');
     }
 
