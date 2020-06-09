@@ -14,10 +14,10 @@ export class PortalManagementService extends APIClient {
      */
     async fetchPortals(ignoreInactivePortals: boolean = false): Promise<AxiosResponse> {
         return await this.invokeApi('/portals', 'GET', undefined, {
-            queryParams: {
-                ignoreInactivePortals,
+                queryParams: {
+                    ignoreInactivePortals,
+                },
             },
-        },
         );
     }
 
@@ -104,6 +104,22 @@ export class PortalManagementService extends APIClient {
      */
     async publishEstates(publishRequest: PublishRequest): Promise<AxiosResponse> {
         return await this.invokeApi('/publish', 'POST', publishRequest);
+    }
+
+    /**
+     * Publishes all units of a developer project to its service providers
+     * @param projectId main identifier of the project entity
+     */
+    async publishProject(projectId: String): Promise<AxiosResponse> {
+        return await this.invokeApi(`/projects/${projectId}/publish`, 'POST');
+    }
+
+    /**
+     * Unpublishes all units of a developer project from its service providers
+     * @param projectId main identifier of the project entity
+     */
+    async unpublishProject(projectId: String): Promise<AxiosResponse> {
+        return await this.invokeApi(`/projects/${projectId}/unpublish`, 'POST');
     }
 
     /**
