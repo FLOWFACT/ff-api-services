@@ -16,10 +16,11 @@
     "lint": "eslint src/*",
     "doc": "typedoc --out doc/",
     "local": "node pack.js platform-apps",
-    "upgradeTypes": "yarn && yarn add @flowfact/types --latest"
+    "upgradeTypes": "yarn && yarn add @flowfact/types --latest",
+    "upgradeNodeFlowdsl": "yarn add @flowfact/node-flowdsl --latest"
   },
   "dependencies": {
-    "@flowfact/node-flowdsl": "^2.20200703.31",
+    "@flowfact/node-flowdsl": "^2.20200707.32",
     "@flowfact/types": "^3.20200622.150",
     "@types/graphql": "14.0.7",
     "@types/node": "^11.15.4",
