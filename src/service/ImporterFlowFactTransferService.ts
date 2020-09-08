@@ -15,7 +15,6 @@ export class ImporterFlowFactTransferService extends APIClient {
             }
         });
     }
-
 }
 
 export default new ImporterFlowFactTransferService();

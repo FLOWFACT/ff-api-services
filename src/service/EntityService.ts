@@ -1,9 +1,9 @@
 import { Flowdsl } from '@flowfact/node-flowdsl';
-import { Entity, EntityDescriptor, EntityAccess, EntityACLType, EntityFieldValues, EntityView, PagedResponse } from '@flowfact/types';
+import { Entity, EntityAccess, EntityACLType, EntityDescriptor, EntityFields, EntityView, PagedResponse } from '@flowfact/types';
 import { AxiosResponse } from 'axios';
 import { v4 as uuid } from 'uuid/interfaces';
 import { APIClient, APIMapping } from '../http';
-import { EntityQuery, EntitySchemaQuery, ParamList, UniformObject } from '..';
+import { EntityQuery, EntitySchemaQuery, ParamList } from '..';
 
 export interface DeleteEntitiesResponse<T> {
     responses: {
@@ -158,10 +158,10 @@ export class EntityService extends APIClient {
      * Update a entity in the backend
      * @param schemaId
      * @param entityId
-     * @param field
+     * @param fields
      */
-    async updateEntityField(schemaId: string, entityId: string, field: UniformObject<EntityFieldValues>) {
-        return this.invokeApi<Entity>(`/schemas/${schemaId}/entities/${entityId}`, 'PATCH', field);
+    async updateEntity(schemaId: string, entityId: string, fields: EntityFields) {
+        return this.invokeApi<Entity>(`/schemas/${schemaId}/entities/${entityId}`, 'PATCH', fields);
     }
 
     /**
@@ -245,6 +245,14 @@ export class EntityService extends APIClient {
      */
     async duplicateEntity(schemaId: uuid, entityId: uuid): Promise<AxiosResponse<string>> {
         return this.invokeApi(`/schemas/${schemaId}/entities/${entityId}/duplicate`, 'POST');
+    }
+
+    /**
+     * Returns an entity
+     * @param entityId
+     */
+    async fetchEntityWithoutSchemaId(entityId: string) {
+        return this.invokeApiWithErrorHandling<Entity>(`/entities/${entityId}`, 'GET');
     }
 }
 

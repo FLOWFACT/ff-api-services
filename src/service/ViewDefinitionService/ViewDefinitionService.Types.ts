@@ -3,6 +3,7 @@ export interface ShortViewDefinition {
     type: ViewType | null;
     name: string;
     schemaId: string;
+    schema: string;
     sorting: number;
 }
 

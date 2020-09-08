@@ -28,7 +28,6 @@ export { default as NylasContactSyncService } from './service/NylasContactSyncSe
 export { default as Office365AuthenticationService } from './service/Office365AuthenticationService';
 export { default as OpenimmoPublishService } from './service/OpenimmoPublishService';
 export { default as OnboardingService } from './service/OnboardingService';
-export { default as PortalManagementService } from './service/PortalManagementService';
 export { default as PresetService } from './service/PresetService';
 export { default as PropertyMarketingPhaseService } from './service/PropertyMarketingPhaseService';
 export { default as SchemaService } from './service/SchemaService';
@@ -44,7 +43,6 @@ export { default as TrialLicenseService } from './service/TrialLicenseService';
 export { default as UserService } from './service/UserService';
 export { default as Authentication } from './authentication/Authentication';
 export { default as OmniChannelService } from './service/OmniChannelService';
-export { default as IS24PublishService } from './service/IS24PublishService';
 export { default as IS24EntitlementService } from './service/IS24EntitlementService';
 export { default as BehaviourService } from './service/BehaviourService';
 export { default as ContractService } from './service/ContractService';
@@ -53,6 +51,7 @@ export { default as SoftLinksEntityService } from './service/SoftLinksEntityServ
 export { default as OpenimmoImporterService } from './service/OpenimmoImporterService';
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
 export { default as AclGroupServiceRest } from './service/AclGroupServiceRest';
+export { default as LambdaProxyService } from './service/LambdaProxyService';
 
 export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
@@ -68,6 +67,8 @@ export * from './service/ImportPreparationService';
 export * from './service/SampleDataService';
 export * from './service/RelogService';
 export * from './service/MatchmakingService';
+export * from './service/PortalManagementService';
+export * from './service/IS24PublishService';
 
 export { APIService, APIMapping, APIClient } from './http';
 export * from './util/EnvironmentManagement';

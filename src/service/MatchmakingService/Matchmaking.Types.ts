@@ -8,20 +8,18 @@ export namespace MatchmakingTypes {
         currentValue: string | number | object | null;
     }
 
-    interface AbstractMatch {
+    export interface OfferedStatus {
         alreadyOffered: boolean;
+        offeredAt: number;
+    }
+
+    export interface Match {
+        offeredStatus: OfferedStatus;
         updatedFields: UpdatedField[];
+        entity: Entity;
     }
 
-    export interface MatchedEstate extends AbstractMatch {
-        estate: Entity;
-    }
-
-    export interface MatchedSearchProfile extends AbstractMatch {
-        searchProfile: Entity;
-    }
-
-    export interface EstatesBySearchProfileQuery {
+    export interface FilterQuery {
         ignored?: boolean;
         offered?: boolean;
     }

@@ -1,3 +1,4 @@
+
 import { APIClient, APIMapping } from '../../http';
 import { JSONPatch, ReadTemplate, WriteTemplate } from './DocumentTemplateService.Types';
 

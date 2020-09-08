@@ -1,7 +1,7 @@
 {
   "name": "@flowfact/api-services",
-  "version": "20.0.0-SNAPSHOT",
-  "description": "middleware of flowfact to interact between frontend and backend",
+  "version": "24.0.0-SNAPSHOT",
+  "description": "middleware of FLOWFACT to interact between frontend and backend",
   "main": "build/index.js",
   "module": "build/es/index.js",
   "types": "build/index.d.ts",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@flowfact/node-flowdsl": "^2.20200810.37",
-    "@flowfact/types": "^4.20200812.165",
+    "@flowfact/types": "^4.20200813.166",
     "@types/graphql": "14.0.7",
     "@types/node": "^11.15.4",
     "@types/prop-types": "^15.5.1",
