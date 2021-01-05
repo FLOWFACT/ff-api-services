@@ -17,6 +17,7 @@ export interface ViewDefinition extends ShortViewDefinition {
     defaultOrder: string;
     actions: string[];
     categories: ViewDefinitionCategory[];
+    metadata?: object;
 }
 
 export type ViewType = 'DEFAULT' | 'LIST' | 'CARD' | 'CALENDAR' | 'MAP' | 'ENTITY_RELATION';
