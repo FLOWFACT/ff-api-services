@@ -74,6 +74,19 @@ export class EnvironmentManagement {
         return service.url ?? `https://${service.name}.${stage}.sf.${account}.cloud`;
     };
 
+    /**
+     * URL for activity report based on stage
+     * We only have DEV and PROD environment for activity report.
+     */
+    getActivityReportUrl(): string {
+        const stage = this.getStage();
+        if (stage === StageTypes.DEVELOPMENT) {
+            return 'https://latest-development-activity-report-v2-cloud.fe.flowfact-dev.cloud';
+        } else {
+            return 'https://latest-development-activity-report-v2-cloud.fe.flowfact-dev.cloud';
+        }
+    }
+
     isDefaultApi() {
         return this.getStage() === defaultStage && this.getVersionTag() === defaultVersionTag;
     }
