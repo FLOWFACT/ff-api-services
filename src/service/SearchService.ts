@@ -67,22 +67,6 @@ export class SearchService extends APIClient {
     }
 
     /**
-     * This method searches for saved searches.
-     * @param query
-     * @param page
-     * @param size
-     * @param withCount
-     */
-    async searchSavedSearches(query: Flowdsl, page: number = 1, size?: number, withCount?: boolean) {
-        return await this.invokeApi<PagedResponse<Entity>>('/saved-searches', 'POST', query, {
-            queryParams: this.buildQueryParams(page, size, withCount),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-    }
-
-    /**
      * This method searches for entities or tags. See swagger documentation of search-service for details
      * @param query
      * @param index
