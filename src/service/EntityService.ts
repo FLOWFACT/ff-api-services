@@ -13,6 +13,16 @@ export interface DeleteEntitiesResponse<T> {
     };
 }
 
+export type PrefixResponse = {
+    prefixes: PrefixData[]
+}
+
+export interface PrefixData {
+    prefix: string;
+    schema: string;
+    defaultForSchemas?: string[]
+}
+
 export class EntityService extends APIClient {
     constructor() {
         super(APIMapping.entityService);
@@ -254,6 +264,26 @@ export class EntityService extends APIClient {
      */
     async fetchEntityWithoutSchemaId(entityId: string) {
         return this.invokeApiWithErrorHandling<Entity>(`/entities/${entityId}`, 'GET');
+    }
+
+    /**
+     * Fetches the existing prefixes from the server
+     */
+        async fetchPrefixes() {
+        return this.invokeApiWithErrorHandling<PrefixResponse>('/prefixes/', 'GET');
+    }
+    
+    /**
+     * Updates the prefix for a schema
+     * @param schema The schema name of the schema that gets the prefix assigned
+     * @param prefix The prefix to be assigned
+     */
+    async updatePrefix(schema: string, prefix: string) {
+        const postBody = {
+            schema,
+            prefix
+        }
+        return this.invokeApiWithErrorHandling<void>('/prefixes/', 'POST', postBody);
     }
 }
 
