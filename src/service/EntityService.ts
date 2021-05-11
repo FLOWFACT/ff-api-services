@@ -270,7 +270,7 @@ export class EntityService extends APIClient {
      * Fetches the existing prefixes from the server
      */
     async fetchPrefixes() {
-        return this.invokeApiWithErrorHandling<PrefixResponse>('/prefixes/', 'GET');
+        return this.invokeApiWithErrorHandling<PrefixResponse>('/prefixes', 'GET');
     }
 
     /**
@@ -283,7 +283,7 @@ export class EntityService extends APIClient {
             schema,
             prefix,
         };
-        return this.invokeApiWithErrorHandling<void>('/prefixes/', 'POST', postBody);
+        return this.invokeApiWithErrorHandling<void>('/prefixes', 'POST', postBody);
     }
 }
 
