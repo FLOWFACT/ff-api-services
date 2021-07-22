@@ -14,6 +14,7 @@ export namespace WidgetLayoutTypes {
         global: boolean;
         layout: LayoutContainer;
         domainType: LayoutDomainType;
+        categories: string[];
     }
 
     export interface GeneralWidgetLayout extends BaseWidgetLayout {
